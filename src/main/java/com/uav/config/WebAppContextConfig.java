@@ -8,6 +8,7 @@ import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.uav.formatter.BusesFormatter;
 import com.uav.formatter.PlxeFormatter;
+import com.uav.formatter.ProviceFormatter;
 import com.uav.formatter.RouteFormatter;
 import com.uav.formatter.UserFormatter;
 import org.springframework.context.MessageSource;
@@ -77,6 +78,7 @@ public class WebAppContextConfig implements WebMvcConfigurer {
         r.addFormatter(new PlxeFormatter());
         r.addFormatter(new UserFormatter());
         r.addFormatter(new BusesFormatter());
+        r.addFormatter(new ProviceFormatter());
     }
     
     

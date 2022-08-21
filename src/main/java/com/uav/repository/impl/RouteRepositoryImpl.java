@@ -47,7 +47,7 @@ public class RouteRepositoryImpl implements RouteRepository {
 
         if (params != null) {
             List<Predicate> predicates = new ArrayList<>();
-            
+
             String kw = params.get("kw");
             if (kw != null && !kw.isEmpty()) {
                 Predicate p = b.like(root.get("routename").as(String.class),
@@ -58,13 +58,14 @@ public class RouteRepositoryImpl implements RouteRepository {
             String proId = params.get("startingpoint");
             String proId1 = params.get("destination");
             if (proId != proId1 && proId != "" && proId1 != "") {
-                Predicate k = b.like(root.get("startingpoint").as(String.class),
+                Predicate k = b.like(root.get("routename").as(String.class),
                         String.format(proId));
-                Predicate k2 = b.like(root.get("destination").as(String.class),
+                Predicate k2 = b.like(root.get("routename").as(String.class),
                         String.format(proId1));
                 predicates.add(k);
                 predicates.add(k2);
             }
+
             q.where(predicates.toArray(new Predicate[]{}));
 
         }

@@ -16,17 +16,17 @@
     <form  method="get" action="${action}" class="d-flex">
         <label for="fname">&#128681</label>
         <select name="proId">
-            <c:forEach items="${provinces}" var = "c">
-                <option>${c.name}</option>
-            </c:forEach>    
+            <c:forEach items="${provinces}" var="c">
+                <option value="${c.name}">${c.name}</option>
+            </c:forEach>
         </select>
         <label for="fname"> &#128256</label>
-        <select name="proId1">
-            <c:forEach items="${provinces}" var = "c">
-                <option>${c.name}</option>
-            </c:forEach>    
+        <select name="proId2">
+            <c:forEach items="${provinces}" var="c">
+                <option value="${c.name}">${c.name}</option>
+            </c:forEach>
         </select>
-        <input type="submit" href="${act}"></li>
+         <button type="submit" class="btn btn-primary" type="button">Tìm</button>
     </form>
 </div>
 <h4>Tuyến đường phổ biến:</h4>

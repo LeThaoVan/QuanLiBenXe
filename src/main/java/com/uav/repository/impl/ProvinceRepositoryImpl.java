@@ -28,7 +28,6 @@ public class ProvinceRepositoryImpl implements ProvinceRepository {
     public List<Province> getProvinces() {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         Query q = session.createQuery("FROM Province");
-
         return q.getResultList();
     }
 }

@@ -4,6 +4,8 @@
  */
 package com.uav.pojo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Collection;
@@ -11,6 +13,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -38,6 +41,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Buses.findByBusesName", query = "SELECT b FROM Buses b WHERE b.busesName = :busesName"),
     @NamedQuery(name = "Buses.findByBstatus", query = "SELECT b FROM Buses b WHERE b.bstatus = :bstatus"),
     @NamedQuery(name = "Buses.findByImage", query = "SELECT b FROM Buses b WHERE b.image = :image")})
+
+
 public class Buses implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -58,15 +63,14 @@ public class Buses implements Serializable {
     @Size(max = 500)
     @Column(name = "image")
     private String image;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "busesId")
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "busesId")
     private Collection<Ticket> ticketCollection;
     @JoinColumn(name = "loaixeID", referencedColumnName = "lid")
     @ManyToOne(optional = false)
     @JsonIgnore
     private Plxe loaixeID;
     @JoinColumn(name = "driverID", referencedColumnName = "userid")
-    
     @ManyToOne(optional = false)
     @JsonIgnore
     private Users driverID;

@@ -1,8 +1,8 @@
 com.uav.config.HibernateConfig=org.springframework.stereotype.Component
 com.uav.config.TilesConfig=org.springframework.stereotype.Component
 com.uav.config.WebAppContextConfig=org.springframework.stereotype.Component
-com.uav.controllers.APIBusesController=org.springframework.stereotype.Component
 com.uav.controllers.AdminController=org.springframework.stereotype.Component
+com.uav.controllers.ApiController=org.springframework.stereotype.Component
 com.uav.controllers.indexController=org.springframework.stereotype.Component
 com.uav.pojo.Buses=javax.persistence.Entity,javax.persistence.Table,javax.xml.bind.annotation.XmlRootElement,javax.persistence.NamedQueries
 com.uav.pojo.Buses_=javax.annotation.Generated,javax.persistence.metamodel.StaticMetamodel

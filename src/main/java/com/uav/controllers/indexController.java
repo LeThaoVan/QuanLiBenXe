@@ -55,6 +55,7 @@ public class indexController {
         model.addAttribute("loaixe", this.plxeService.getPlxes());
         model.addAttribute("routes", this.routeService.getRoutes(params, 0));
         model.addAttribute("chuyenxe", this.busesService.getBuses(params, 0));
+        model.addAttribute("provinces", this.provinceService.getProvinces());
     }
     
     @RequestMapping("/")
@@ -63,7 +64,6 @@ public class indexController {
         int page = Integer.parseInt(params.getOrDefault("page", "1"));
         int size = Integer.parseInt(env.getProperty("page.size").toString());
         model.addAttribute("page_size",size);
-        model.addAttribute("provinces", this.provinceService.getProvinces());
         model.addAttribute("routeCounter", this.routeService.countRoute());
         model.addAttribute("busesCounter", this.busesService.countBuses());
         return "index";

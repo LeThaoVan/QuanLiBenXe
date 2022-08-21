@@ -4,12 +4,14 @@
  */
 package com.uav.pojo;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -55,7 +57,7 @@ public class Plxe implements Serializable {
     @Size(min = 1, max = 225)
     @Column(name = "HangXe")
     private String hangXe;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "loaixeID")
+    @OneToMany( cascade = CascadeType.ALL, mappedBy = "loaixeID")
     private Collection<Buses> busesCollection;
 
     public Plxe() {

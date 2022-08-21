@@ -50,10 +50,12 @@
     </div>
 </form:form>
 
-
-
+<div class="table-search-buses" style="padding-left: 70%">
+    <h6 style="display: inline;">Tìm kiếm: </h6>
+    <input type="text" id="myInput" onkeyup="mySearchBuses()" placeholder="Search for names..">
+</div>
 <div class="spinner-border text-success" id="mySpinner"></div>
-<table class="table">
+<table class="table" id = "myTable">
     <tr>
         <th>Mã</th>
         <th></th>
@@ -74,8 +76,8 @@
 <script>
     <c:url value="/api/buses" var="u" />
 
-    window.onload = function () {
-        getBuses('${u}');
-    }
+        window.onload = function () {
+            getBuses('${u}');
+        }
 
 </script>

@@ -31,7 +31,6 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
                        value="/WEB-INF/jsp/routebuses.jsp" />
     </definition>
     
-    
     <definition name="listbuses" extends="baseLayout">
         <put-attribute name="title" value="Danh sách xe khách" />
         <put-attribute name="content"
