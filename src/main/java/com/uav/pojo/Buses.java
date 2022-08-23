@@ -4,8 +4,6 @@
  */
 package com.uav.pojo;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Collection;
@@ -23,6 +21,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.transaction.Transactional;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -41,7 +40,6 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Buses.findByBusesName", query = "SELECT b FROM Buses b WHERE b.busesName = :busesName"),
     @NamedQuery(name = "Buses.findByBstatus", query = "SELECT b FROM Buses b WHERE b.bstatus = :bstatus"),
     @NamedQuery(name = "Buses.findByImage", query = "SELECT b FROM Buses b WHERE b.image = :image")})
-
 
 public class Buses implements Serializable {
 
@@ -63,7 +61,7 @@ public class Buses implements Serializable {
     @Size(max = 500)
     @Column(name = "image")
     private String image;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "busesId")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "busesId")
     @JsonIgnore
     private Collection<Ticket> ticketCollection;
     @JoinColumn(name = "loaixeID", referencedColumnName = "lid")
@@ -71,7 +69,7 @@ public class Buses implements Serializable {
     @JsonIgnore
     private Plxe loaixeID;
     @JoinColumn(name = "driverID", referencedColumnName = "userid")
-    @ManyToOne(optional = false)
+    @ManyToOne( optional = false)
     @JsonIgnore
     private Users driverID;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "busesId")

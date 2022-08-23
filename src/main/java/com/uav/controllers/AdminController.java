@@ -68,11 +68,12 @@ public class AdminController {
 
 //ĐƯỜNG DẪN THÊM CHUYẾN XE CHO TUYẾN XE
     @GetMapping("/routebuses")
-    public String listRB(Model model) {
+    public String listRB(Model model,@RequestParam Map<String, String> params) {
         model.addAttribute("routebuses", new Routebuses());
+        model.addAttribute("routebuses2", this.routebusesService.getRouteBuses(params, 0));
         return "routebuses";
     }
-
+    
     @PostMapping("/routebuses")
     public String addRB(@ModelAttribute(value = "routebuses") @Valid Routebuses k,
             BindingResult r) {

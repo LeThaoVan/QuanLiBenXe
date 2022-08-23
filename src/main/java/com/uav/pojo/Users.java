@@ -4,7 +4,9 @@
  */
 package com.uav.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
@@ -46,6 +48,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Users.findByEmail", query = "SELECT u FROM Users u WHERE u.email = :email"),
     @NamedQuery(name = "Users.findByRode", query = "SELECT u FROM Users u WHERE u.rode = :rode"),
     @NamedQuery(name = "Users.findBySdt", query = "SELECT u FROM Users u WHERE u.sdt = :sdt")})
+
+
 public class Users implements Serializable {
 
     private static final long serialVersionUID = 1L;

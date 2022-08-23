@@ -60,9 +60,12 @@
     <div><a href="<c:url value="/admin/buses" />"class="btn" >&#60&#60 Thêm chuyến xe</a></div>
 </form:form>
 
-
+<div class="table-search-buses" style="padding-left: 70%">
+    <h6 style="display: inline;">Tìm kiếm: </h6>
+    <input type="text" id="myInput2" onkeyup="mySearchRBuses()" placeholder="Search for names..">
+</div>
 <div class="spinner-border text-success" id="mySpinner"></div>
-<table class="table">
+<table class="table" id ="myTable2">
     <tr>
         <th>Mã</th>
         <th>Tên chuyến xe</th>
@@ -72,7 +75,7 @@
         <th></th>
     </tr>
     <tbody id="myRouteBuses">
-
+        
     </tbody>
 </table>
 

@@ -4,7 +4,9 @@
  */
 package com.uav.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
@@ -28,6 +30,7 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "plxe")
+
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Plxe.findAll", query = "SELECT p FROM Plxe p"),
